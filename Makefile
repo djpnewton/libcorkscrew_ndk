@@ -23,7 +23,8 @@ generic_src_files := \
 	map_info.c \
 	ptrace.c \
 	symbol_table.c \
-	libcutils/atomic.c
+	libcutils/atomic.c \
+	gcc-demangle/cp-demangle.c
 
 arm_src_files := \
 	arch-arm/backtrace-arm.c \
@@ -54,7 +55,7 @@ endif
 
 LOCAL_SHARED_LIBRARIES += libdl libcutils liblog libgccdemangle
 
-LOCAL_CFLAGS += -DANDROID_SMP -std=gnu99 -Werror
+LOCAL_CFLAGS += -DANDROID_SMP -DHAVE_STRING_H -DHAVE_STDLIB_H -DIN_GLIBCPP_V3 -std=gnu99 -Werror
 LOCAL_MODULE := libcorkscrew
 LOCAL_MODULE_TAGS := optional
 
