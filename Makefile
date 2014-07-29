@@ -24,7 +24,8 @@ generic_src_files := \
 	ptrace.c \
 	symbol_table.c \
 	libcutils/atomic.c \
-	gcc-demangle/cp-demangle.c
+	gcc-demangle/cp-demangle.c \
+	tgkill/tgkill.c
 
 arm_src_files := \
 	arch-arm/backtrace-arm.c \
