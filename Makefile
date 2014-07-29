@@ -12,7 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH:= $(call my-dir)
+#TODO!! SYSTEM specific stuff here!!
+TARGET_ARCH = arm
+CFLAGS = -march=armv7-a
 
 generic_src_files := \
 	backtrace.c \
@@ -20,7 +22,8 @@ generic_src_files := \
 	demangle.c \
 	map_info.c \
 	ptrace.c \
-	symbol_table.c
+	symbol_table.c \
+	libcutils/atomic.c
 
 arm_src_files := \
 	arch-arm/backtrace-arm.c \
@@ -51,7 +54,7 @@ endif
 
 LOCAL_SHARED_LIBRARIES += libdl libcutils liblog libgccdemangle
 
-LOCAL_CFLAGS += -std=gnu99 -Werror
+LOCAL_CFLAGS += -DANDROID_SMP -std=gnu99 -Werror
 LOCAL_MODULE := libcorkscrew
 LOCAL_MODULE_TAGS := optional
 
